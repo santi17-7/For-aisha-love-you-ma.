@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff1493;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my girlfriend? 💖</h1>
+        <button onclick="yesClicked()">Yes</button>
+        <button onclick="noClicked()">No</button>
+        <p id="message"></p>
+    </div>
+    
+    <script>
+        function yesClicked() {
+            document.getElementById('message').innerText = 'Okay ma I Love you ❤️';
+        }
+        function noClicked() {
+            document.getElementById('message').innerText = ' Are you sure? Think again!';
+        }
+    </script>
+</body>
+</html>
