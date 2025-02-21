@@ -7,71 +7,77 @@
     <style>
         body {
             text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #ffe4e1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffccf9;
+            padding: 50px;
+            transition: background 0.5s ease-in-out;
         }
         .container {
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            animation: fadeIn 1s ease-in-out;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.05);
         }
         h1 {
-            color: #ff69b4;
+            color: #ff66b2;
         }
-        button {
-            background-color: #ff69b4;
-            color: white;
-            border: none;
+        .btn {
             padding: 10px 20px;
+            font-size: 20px;
             margin: 10px;
-            border-radius: 5px;
+            border: none;
             cursor: pointer;
-            font-size: 18px;
-            transition: transform 0.2s;
+            border-radius: 10px;
+            transition: 0.3s;
         }
-        button:hover {
-            background-color: #ff1493;
-            transform: scale(1.1);
+        .yes {
+            background: #ff66b2;
+            color: white;
         }
-        #message {
+        .no {
+            background: #ccc;
+            color: black;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        #result {
             margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
-            color: #ff1493;
-            animation: bounce 1s infinite alternate;
+            font-size: 24px;
+            color: #ff66b2;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
+        .gif {
+            width: 200px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Will you be my girlfriend? 💖</h1>
-        <button onclick="yesClicked()">Yes</button>
-        <button onclick="noClicked()">No</button>
-        <p id="message"></p>
+        <button class="btn yes" onclick="showLove()">Yes</button>
+        <button class="btn no" onmouseover="moveNoButton()">No</button>
+        <div id="result" class="hidden">
+            <p>I knew you would pick yes, I Love you ma! 💕</p>
+            <img class="gif" src="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif" alt="Cute Gif">
+        </div>
     </div>
-    
     <script>
-        function yesClicked() {
-            document.getElementById('message').innerText = 'Okay ma I Love you ❤️';
+        function showLove() {
+            document.getElementById('result').classList.remove('hidden');
         }
-        function noClicked() {
-            document.getElementById('message').innerText = ' Are you sure? Think again!';
+        function moveNoButton() {
+            const noBtn = document.querySelector('.no');
+            noBtn.style.top = Math.random() * window.innerHeight + 'px';
+            noBtn.style.left = Math.random() * window.innerWidth + 'px';
         }
     </script>
 </body>
 </html>
+
